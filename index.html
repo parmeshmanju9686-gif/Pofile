@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parmesh's Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#10b981', // Emerald 500
+                        dark: '#0f172a',    // Slate 900
+                        card: '#1e293b',    // Slate 800
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #10b981;
+        }
+
+        /* Animations */
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+    </style>
+</head>
+<body class="bg-dark text-white selection:bg-primary selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-dark/90 backdrop-blur-sm border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-2xl font-bold text-primary">PARMESH <span class="text-white">T S</span></a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="hover:text-primary transition-colors px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                        <a href="#about" class="hover:text-primary transition-colors px-3 py-2 rounded-md text-sm font-medium">About</a>
+                        <a href="#skills" class="hover:text-primary transition-colors px-3 py-2 rounded-md text-sm font-medium">Skills</a>
+                        <a href="#contact" class="bg-primary text-dark hover:bg-emerald-400 px-4 py-2 rounded-md text-sm font-bold transition-colors">Contact Me</a>
+                    </div>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white focus:outline-none p-2">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-card border-b border-gray-700">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium" onclick="closeMenu()">Home</a>
+                <a href="#about" class="hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium" onclick="closeMenu()">About</a>
+                <a href="#skills" class="hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium" onclick="closeMenu()">Skills</a>
+                <a href="#contact" class="text-primary hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium" onclick="closeMenu()">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home / Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-16 relative overflow-hidden">
+        <!-- Background Decor -->
+        <div class="absolute top-20 right-0 w-72 h-72 bg-primary/10 rounded-full blur-3xl -z-10"></div>
+        <div class="absolute bottom-20 left-0 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl -z-10"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col-reverse md:flex-row items-center">
+            <div class="w-full md:w-1/2 text-center md:text-left fade-in-up">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                    Hi, I'm <span class="text-primary">Parmesh</span><br>
+                    Web Developer
+                </h1>
+                <p class="text-gray-400 text-lg mb-8 max-w-lg mx-auto md:mx-0">
+                    I build accessible, pixel-perfect, and performant web experiences. Passionate about creating software that improves the lives of those around me.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <!-- Updated Download Button to link to PDF -->
+                    <a href="Resume (1).pdf" download="Parmesh_Resume.pdf" class="px-8 py-3 bg-primary text-dark font-bold rounded-lg hover:bg-emerald-400 transition-transform transform hover:-translate-y-1 shadow-lg shadow-emerald-500/20 flex items-center justify-center gap-2">
+                        <i class="fas fa-download"></i> Download Resume
+                    </a>
+                    <a href="#contact" class="px-8 py-3 border border-gray-600 rounded-lg hover:border-primary hover:text-primary transition-colors flex items-center justify-center gap-2">
+                        <i class="fas fa-envelope"></i> Contact Me
+                    </a>
+                </div>
+            </div>
+            <div class="w-full md:w-1/2 flex justify-center mb-10 md:mb-0 fade-in-up delay-200">
+                <div class="relative w-64 h-64 md:w-96 md:h-96">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-primary to-blue-500 rounded-full opacity-20 animate-pulse"></div>
+                    <img src="1000047873.png" alt="Profile Avatar" class="rounded-full w-full h-full object-cover border-4 border-card shadow-2xl relative z-10">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-card/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-white mb-4">About Me</h2>
+                <div class="w-20 h-1 bg-primary mx-auto rounded"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6 text-gray-300">
+                    <p class="text-lg">
+                        Hello! I'm Parmesh, a passionate web developer. I am an undergraduate student in 5th semester and this is my first project.
+                    </p>
+                    <p class="text-lg">
+                        Fast-forward to today, and I've had the privilege of working on various projects. My main focus these days is building accessible, inclusive products and digital experiences for a variety of clients.
+                    </p>
+                </div>
+                <div class="bg-dark p-8 rounded-2xl border border-gray-700 hover:border-primary transition-colors duration-300 shadow-xl">
+                    <h3 class="text-xl font-bold mb-4 text-white">I'm also interested in...</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-primary"></i> <span>UI/UX Design</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-primary"></i> <span>Open Source</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-primary"></i> <span>Cloud Computing</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-primary"></i> <span>Mobile Development</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-white mb-4">My Skills</h2>
+                <div class="w-20 h-1 bg-primary mx-auto rounded"></div>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                <!-- Skill Card 1: HTML -->
+                <div class="bg-card p-6 rounded-xl text-center hover:-translate-y-2 transition-transform duration-300 border border-gray-800 hover:border-primary group">
+                    <i class="fab fa-html5 text-5xl text-orange-500 mb-4 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-lg font-semibold">HTML</h3>
+                </div>
+                <!-- Skill Card 2: CSS -->
+                <div class="bg-card p-6 rounded-xl text-center hover:-translate-y-2 transition-transform duration-300 border border-gray-800 hover:border-primary group">
+                    <i class="fab fa-css3-alt text-5xl text-blue-500 mb-4 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-lg font-semibold">CSS</h3>
+                </div>
+                <!-- Skill Card 3: JavaScript -->
+                <div class="bg-card p-6 rounded-xl text-center hover:-translate-y-2 transition-transform duration-300 border border-gray-800 hover:border-primary group">
+                    <i class="fab fa-js text-5xl text-yellow-400 mb-4 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-lg font-semibold">JavaScript</h3>
+                </div>
+                <!-- Skill Card 4: DSA -->
+                <div class="bg-card p-6 rounded-xl text-center hover:-translate-y-2 transition-transform duration-300 border border-gray-800 hover:border-primary group">
+                    <i class="fas fa-sitemap text-5xl text-purple-400 mb-4 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-lg font-semibold">DSA</h3>
+                </div>
+                <!-- Skill Card 5: SQL -->
+                <div class="bg-card p-6 rounded-xl text-center hover:-translate-y-2 transition-transform duration-300 border border-gray-800 hover:border-primary group">
+                    <i class="fas fa-database text-5xl text-teal-400 mb-4 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-lg font-semibold">SQL</h3>
+                </div>
+                <!-- Skill Card 6: Git -->
+                <div class="bg-card p-6 rounded-xl text-center hover:-translate-y-2 transition-transform duration-300 border border-gray-800 hover:border-primary group">
+                    <i class="fab fa-git-alt text-5xl text-red-500 mb-4 group-hover:scale-110 transition-transform"></i>
+                    <h3 class="text-lg font-semibold">Git</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-card/30">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-white mb-4">Contact</h2>
+                <div class="w-20 h-1 bg-primary mx-auto rounded mb-6"></div>
+            </div>
+
+            <div class="bg-card p-8 rounded-2xl border border-gray-700 shadow-2xl">
+                <div class="flex flex-col items-center justify-center space-y-6">
+                    <div class="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center text-primary text-2xl">
+                        <i class="fas fa-address-card"></i>
+                    </div>
+                    
+                    <div class="text-center space-y-6">
+                        <!-- Email Block -->
+                        <div>
+                            <p class="text-sm text-gray-400 uppercase tracking-wide mb-2">Email</p>
+                            <a href="mailto:parmeshmanju9686@gmail.com" class="text-lg md:text-2xl font-bold text-white hover:text-primary transition-colors flex items-center justify-center gap-2 group break-all">
+                                <i class="fas fa-envelope text-primary text-lg"></i>
+                                parmeshmanju9686@gmail.com
+                            </a>
+                        </div>
+
+                        <!-- Phone Block -->
+                        <div>
+                            <p class="text-sm text-gray-400 uppercase tracking-wide mb-2">Phone Number</p>
+                            <a href="tel:+918217420463" class="text-lg md:text-2xl font-bold text-white hover:text-primary transition-colors flex items-center justify-center gap-2 group">
+                                <i class="fas fa-phone text-primary text-lg"></i>
+                                +91-8217420463
+                            </a>
+                        </div>
+
+                        <!-- Location Block -->
+                        <div>
+                            <p class="text-sm text-gray-400 uppercase tracking-wide mb-2">Location</p>
+                            <div class="text-lg md:text-2xl font-bold text-white hover:text-primary transition-colors flex items-center justify-center gap-2 group">
+                                <i class="fas fa-map-marker-alt text-primary text-lg"></i>
+                                Karnataka, India
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex space-x-6 pt-4">
+                        <a href="#" class="text-gray-400 hover:text-white text-2xl transition-colors"><i class="fab fa-github"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-blue-500 text-2xl transition-colors"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-sky-400 text-2xl transition-colors"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-pink-500 text-2xl transition-colors"><i class="fab fa-instagram"></i></a>
+                    </div>
+
+                    <button onclick="copyEmail()" id="copyBtn" class="mt-4 text-sm text-primary hover:text-white underline decoration-dotted">
+                        Copy Email Address
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark border-t border-gray-800 py-8">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-gray-500 text-sm">
+                &copy; 2025 Parmesh. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        function closeMenu() {
+            menu.classList.add('hidden');
+        }
+
+        // Email Copy Function
+        function copyEmail() {
+            const email = "parmeshmanju9686@gmail.com";
+            navigator.clipboard.writeText(email).then(() => {
+                const btn = document.getElementById('copyBtn');
+                const originalText = btn.innerText;
+                btn.innerText = "Email Copied!";
+                btn.classList.add('text-green-500');
+                
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.classList.remove('text-green-500');
+                }, 2000);
+            });
+        }
+
+        // Simple Intersection Observer for scroll animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateY(0)";
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Add animation classes to sections
+        document.querySelectorAll('section > div').forEach(section => {
+            section.style.opacity = "0";
+            section.style.transform = "translateY(20px)";
+            section.style.transition = "all 0.6s ease-out";
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
